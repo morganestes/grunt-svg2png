@@ -37,31 +37,26 @@ See the [Gruntfile](Gruntfile.js) in this repo for a full example.
 
 ```js
 grunt.initConfig({
-    svg2png: {
-		all: {
-			files: [
-				// rasterize all SVG files
-				{
-					cwd: 'assets/images/src/',
-					expand: true,
-					src: '**/*.svg',
-					dest: 'assets/images/'
-				}
-			]
+  svg2png: {
+	all: {
+		files: [{
+				cwd: 'assets/images/src/',
+				expand: true,
+				src: '**/*.svg',
+				dest: 'assets/images/'
+				}]
+	},
+	retina: {
+		options: {
+			scale: 2.0,
+			suffix: '@2x' //generates 'filename@2x.png'
 		},
-		retina: {
-			options: {
-				scale: 2.0,
-				suffix: '@2x' //generates 'filename@2x.png'
-			},
-			files: [
-				{
-					cwd: 'assets/images/src/',
-					expand: true,
-					src: '**/*.svg',
-					dest: 'assets/images/'
-				}
-			]
+		files: [{
+				cwd: 'assets/images/src/',
+				expand: true,
+				src: '**/*.svg',
+				dest: 'assets/images/'
+			}]
 		}
 	}
 });
@@ -74,4 +69,4 @@ grunt.registerTask("default", ["svg2png"]);
 
 ## License
 
-unlicence
+[unlicence](UNLICENSE)
