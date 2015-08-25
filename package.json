@@ -1,7 +1,7 @@
 {
   "name": "grunt-svg2png",
-  "version": "0.1.2",
-  "description": "Convert SVG to PNG",
+  "version": "0.1.3",
+  "description": "Convert SVG to PNG images.",
   "keywords": [
     "gruntplugin",
     "svg",
@@ -10,15 +10,19 @@
     "graphic",
     "image"
   ],
-  "homepage": "https://github.com/pascalduez/grunt-svg2png",
-  "bugs": "https://github.com/pascalduez/grunt-svg2png/issues",
+  "homepage": "https://github.com/morganestes/grunt-svg2png",
+  "bugs": "https://github.com/morganestes/grunt-svg2png/issues",
   "author": {
-    "name": "Pascal Duez",
-    "url": "http://pascalduez.me"
+    "name": "Morgan Estes",
+    "url": "http://morganestes.com"
+  },
+  "contributors": {
+      "name": "Pascal Duez",
+      "url": "http://pascalduez.me"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/pascalduez/grunt-svg2png.git"
+    "url": "git://github.com/morganestes/grunt-svg2png.git"
   },
   "license": "unlicence",
   "scripts": {
