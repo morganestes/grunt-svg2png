@@ -8,7 +8,7 @@
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```sh
-npm install --save-dev pascalduez/grunt-svg2png
+npm install --save-dev morganestes/grunt-svg2png
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -25,45 +25,45 @@ grunt.loadNpmTasks('grunt-svg2png');
 
 
 ## Motivation
+This is a fork of [pascalduez/grunt-svg2png](https://github.com/pascalduez/grunt-svg2png) that enables saving files outside
+of the source directory, and provides the ability to add text to the filename when generating a PNG (e.g. 'filename.png' and 'filename@2x.png').
 
-At the time of writing, none of the other grunt plugins offered the scaling capability.
-Bear in mind this is just a grunt wrapper on top of [svg2png](https://github.com/domenic/svg2png).
-It works particulary well combined with [SassyIcons](https://github.com/pascalduez/SassyIcons).
-Since there are already a bunch of other similar modules and to prevent names conflict it is not published on npm.
-
+The plugin relies on [svg2png](https://github.com/domenic/svg2png) for processing files.
 
 ## Documentation
-
 See the [Gruntfile](Gruntfile.js) in this repo for a full example.
-
 
 ### Example config
 
 ```js
 grunt.initConfig({
-  svg2png: {
-    fallback: {
-      options: {
-        subdir: "png"
-      },
-      files: [{
-        expand: true,
-        cwd: "test/svg",
-        src: ["**/*.svg"]
-      }]
-    },
-    retina: {
-      options: {
-        scale: 2.0,
-        subdir: "png_2x",
-      },
-      files: [{
-        expand: true,
-        cwd: "test/svg",
-        src: ["**/*.svg"]
-      }]
-    }
-  }
+    svg2png: {
+		all: {
+			files: [
+				// rasterize all SVG files
+				{
+					cwd: 'assets/images/src/',
+					expand: true,
+					src: '**/*.svg',
+					dest: 'assets/images/'
+				}
+			]
+		},
+		retina: {
+			options: {
+				scale: 2.0,
+				suffix: '@2x' //generates 'filename@2x.png'
+			},
+			files: [
+				{
+					cwd: 'assets/images/src/',
+					expand: true,
+					src: '**/*.svg',
+					dest: 'assets/images/'
+				}
+			]
+		}
+	}
 });
 
 grunt.loadNpmTasks("grunt-svg2png");
